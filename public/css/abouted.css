@@ -1,0 +1,441 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-weight: 400;
+    font-size: 16px;
+    position: relative;
+    z-index: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #252525;
+    line-height: 1.3;
+    font-weight: 600;
+}
+
+a,
+a:active,
+a:focus,
+a:hover {
+    color: #252525;
+    text-decoration: none;
+    -webkit-transition-duration: 500ms;
+    -o-transition-duration: 500ms;
+    transition-duration: 500ms;
+    outline: none;
+    font-weight: 500;
+}
+
+li {
+    list-style: none;
+}
+
+p {
+    line-height: 1.9;
+    color: #636363;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+ul li {
+    margin: 0;
+    padding: 0;
+}
+
+.special {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 0;
+    height: 72px;
+    width: 100%;
+    display: table;
+
+    background: #262532;
+    /* background-image: url("../img/dubai.jpg"); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.breadcrumb_bg {
+    background: #262532;
+    /* background-image: url("../img/dubai.jpg"); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.breadcrumb {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 0;
+}
+
+.breadcrumb .breadcrumb_iner {
+    height: 200px;
+    width: 100%;
+    display: table;
+}
+
+.breadcrumb .breadcrumb_iner .breadcrumb_iner_item {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.breadcrumb .breadcrumb_iner .breadcrumb_iner_item h2 {
+    color: #fff;
+    font-size: 70px;
+    font-weight: 400;
+    padding-top: 50px;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+}
+
+@media (max-width: 575px) {
+    .breadcrumb .breadcrumb_iner .breadcrumb_iner_item h2 {
+        font-size: 35px;
+    }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+    .breadcrumb .breadcrumb_iner .breadcrumb_iner_item h2 {
+        font-size: 35px;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .breadcrumb .breadcrumb_iner .breadcrumb_iner_item h2 {
+        font-size: 40px;
+    }
+}
+
+.breadcrumb .breadcrumb_iner .breadcrumb_iner_item p {
+    font-size: 15px;
+    color: #fff;
+    text-transform: capitalize;
+}
+
+.breadcrumb .breadcrumb_iner .breadcrumb_iner_item span {
+    margin: 0px 5px;
+    font-size: 12px;
+}
+
+.breadcrumb {
+    margin-bottom: 0px !important;
+}
+
+.bg-gray {
+    background-color: #f7f7f7 !important;
+}
+
+.section-padding-80-0 {
+    padding-top: 80px;
+    padding-bottom: 0;
+}
+.section-padding-80-50 {
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+
+.section-heading {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 50px;
+}
+.section-heading h2 {
+    font-size: 36px;
+    text-transform: capitalize;
+    margin-bottom: 5px;
+    display: block;
+    line-height: 1.2;
+}
+@media only screen and (max-width: 767px) {
+    .section-heading h2 {
+        font-size: 24px;
+    }
+}
+.section-heading p {
+    margin-bottom: 0;
+}
+.section-heading.white p,
+.section-heading.white h2 {
+    color: #ffffff;
+}
+
+.why-choose-us-content .chosse-us-icon {
+    -webkit-transition-duration: 800ms;
+    -o-transition-duration: 800ms;
+    transition-duration: 800ms;
+    height: 76px;
+    width: 76px;
+    background-color: #fc6060;
+    display: inline-block;
+    text-align: center;
+    line-height: 76px;
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 30px;
+    position: absolute;
+    top: -38px;
+    left: 50%;
+    margin-left: -38px;
+}
+.why-choose-us-content h4 {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    -webkit-transition-duration: 800ms;
+    -o-transition-duration: 800ms;
+    transition-duration: 800ms;
+}
+.why-choose-us-content p {
+    -webkit-transition-duration: 800ms;
+    -o-transition-duration: 800ms;
+    transition-duration: 800ms;
+    font-size: 14px;
+    margin-bottom: 0;
+}
+.why-choose-us-content:hover,
+.why-choose-us-content:focus {
+    background-color: #fc6060;
+}
+.why-choose-us-content:hover .chosse-us-icon,
+.why-choose-us-content:focus .chosse-us-icon {
+    background-color: #000000;
+    box-shadow: 0 5px 15px 2px rgba(255, 255, 255, 0.15);
+}
+.why-choose-us-content:hover h4,
+.why-choose-us-content:hover p,
+.why-choose-us-content:focus h4,
+.why-choose-us-content:focus p {
+    color: #ffffff;
+}
+
+.team-content-area {
+    position: relative;
+    z-index: 1;
+    padding: 40px;
+    -webkit-box-shadow: 0 4px 20px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+    -webkit-transition-duration: 500ms;
+    -o-transition-duration: 500ms;
+    transition-duration: 500ms;
+    background-color: #ffffff;
+}
+.team-content-area .member-thumb {
+    margin: 0 auto 40px;
+    width: 165px;
+}
+.team-content-area .member-thumb img {
+    -webkit-transition-duration: 500ms;
+    -o-transition-duration: 500ms;
+    transition-duration: 500ms;
+    width: 100%;
+    border-radius: 50%;
+}
+.team-content-area h5 {
+    -webkit-transition-duration: 500ms;
+    -o-transition-duration: 500ms;
+    transition-duration: 500ms;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+.team-content-area span {
+    -webkit-transition-duration: 500ms;
+    -o-transition-duration: 500ms;
+    transition-duration: 500ms;
+    color: #fc6060;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+.team-content-area .member-social-info {
+    position: relative;
+    z-index: 1;
+    margin-top: 30px;
+}
+.team-content-area .member-social-info a {
+    color: #636363;
+    font-size: 16px;
+    margin: 0 10px;
+    -webkit-transition-duration: 500ms;
+    -o-transition-duration: 500ms;
+    transition-duration: 500ms;
+}
+.team-content-area .member-social-info a:hover,
+.team-content-area .member-social-info a:focus {
+    color: #fc6060;
+}
+.team-content-area:hover,
+.team-content-area:focus {
+    background-color: #fc6060;
+}
+.team-content-area:hover .member-thumb img,
+.team-content-area:focus .member-thumb img {
+    -webkit-transform: rotate(25deg);
+    -ms-transform: rotate(25deg);
+    transform: rotate(25deg);
+}
+.team-content-area:hover h5,
+.team-content-area:hover span,
+.team-content-area:focus h5,
+.team-content-area:focus span {
+    color: #ffffff;
+}
+.team-content-area:hover .member-social-info a,
+.team-content-area:focus .member-social-info a {
+    color: #ffffff;
+}
+.team-content-area:hover .member-social-info a:hover,
+.team-content-area:hover .member-social-info a:focus,
+.team-content-area:focus .member-social-info a:hover,
+.team-content-area:focus .member-social-info a:focus {
+    color: #000000;
+}
+
+.contact_us {
+    position: relative;
+    z-index: 5;
+}
+
+/* line 5, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_contact_us.scss */
+.contact_us .contact_us_iner {
+    background-color: #ff7e00;
+    padding: 95px 0px;
+}
+
+@media (max-width: 575px) {
+    /* line 5, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_contact_us.scss */
+    .contact_us .contact_us_iner {
+        padding: 30px 15px;
+    }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+    /* line 5, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_contact_us.scss */
+    .contact_us .contact_us_iner {
+        padding: 30px 15px;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    /* line 5, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_contact_us.scss */
+    .contact_us .contact_us_iner {
+        padding: 30px 15px;
+    }
+}
+
+/* line 20, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_contact_us.scss */
+.contact_us .contact_us_iner p {
+    color: #000;
+}
+
+/* line 25, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_contact_us.scss */
+.contact_us .contact_us_iner .contact_us_left_text h4 {
+    display: inline-block;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 27px;
+}
+
+/* line 31, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_contact_us.scss */
+.contact_us .contact_us_iner .contact_us_left_text span {
+    font-size: 14px;
+    float: right;
+}
+
+/* line 35, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_contact_us.scss */
+.contact_us .contact_us_iner .contact_us_left_text p {
+    margin-bottom: 25px;
+}
+
+@media (max-width: 575px) {
+    /* line 39, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_contact_us.scss */
+    .contact_us .contact_us_iner .contact_us_right_text {
+        margin-top: 25px;
+    }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+    /* line 39, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_contact_us.scss */
+    .contact_us .contact_us_iner .contact_us_right_text {
+        margin-top: 25px;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    /* line 39, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_contact_us.scss */
+    .contact_us .contact_us_iner .contact_us_right_text {
+        margin-top: 25px;
+    }
+}
+
+/* line 52, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_contact_us.scss */
+.contact_us .contact_us_iner .contact_us_right_text h5 {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* line 56, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_contact_us.scss */
+.contact_us .contact_us_iner .contact_us_right_text h2 {
+    font-size: 36px;
+    margin-bottom: 34px;
+}
+
+@media (max-width: 575px) {
+    /* line 56, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_contact_us.scss */
+    .contact_us .contact_us_iner .contact_us_right_text h2 {
+        font-size: 25px;
+        margin-bottom: 20px;
+    }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+    /* line 56, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_contact_us.scss */
+    .contact_us .contact_us_iner .contact_us_right_text h2 {
+        font-size: 25px;
+        margin-bottom: 20px;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    /* line 56, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_contact_us.scss */
+    .contact_us .contact_us_iner .contact_us_right_text h2 {
+        font-size: 25px;
+        margin-bottom: 20px;
+    }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+    /* line 56, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_contact_us.scss */
+    .contact_us .contact_us_iner .contact_us_right_text h2 {
+        font-size: 25px;
+        margin-bottom: 20px;
+    }
+}
+
+/* line 76, ../../01 cl html template/New folder/May 2019/176 Interior Heaven/Interior Heaven Html/sass/_contact_us.scss */
+.contact_us .contact_us_iner .contact_us_right_text span {
+    margin-bottom: 30px;
+    display: inline-block;
+}

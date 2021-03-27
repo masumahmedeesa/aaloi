@@ -1,0 +1,15 @@
+@extends('layouts.originalLayout')
+
+@section('insideHead')
+
+@endsection
+
+@section('system')
+
+@endsection
+
+
+@section('queryQuota')
+    <script type="text/javascript" src="js/project.js">
+    </script>
+@endsection
