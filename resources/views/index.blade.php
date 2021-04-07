@@ -176,8 +176,6 @@
         </div>
     </section>
 
-        {{-- service part silooooooooo... But delete kore disi..... --}}
-
     <!-- Start brand Area -->
     <!-- <section>
         <div class="container">

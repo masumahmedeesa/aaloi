@@ -1,10 +1,9 @@
 @extends('layouts.originalLayout')
 
 @section('extra')
-<link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500" rel="stylesheet" />
-<link href="https://fonts.googleapis.com/css?family=Roboto:300i,400,500" rel="stylesheet" />
+<!-- <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500" rel="stylesheet" /> -->
+<!-- <link href="https://fonts.googleapis.com/css?family=Roboto:300i,400,500" rel="stylesheet" /> -->
 <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css" />
-
 @endsection
 
 @section('insideHead')
@@ -21,19 +20,6 @@
         color: rgba(255, 255, 255, 0.5);
     }
 
-    .owl-theme .owl-dots .owl-dot span {
-        background: yellow !important;
-        display: block;
-        -webkit-transition: opacity 200ms ease;
-        -moz-transition: opacity 200ms ease;
-        -ms-transition: opacity 200ms ease;
-        -o-transition: opacity 200ms ease;
-        transition: opacity 200ms ease;
-        -webkit-border-radius: 30px;
-        -moz-border-radius: 30px;
-        border-radius: 30px;
-    }
-
 </style>
 
 @endsection
@@ -41,7 +27,8 @@
 @section('system')
 
 <!-- breadcrumb start-->
-<section class="breadcrumb breadcrumb_bg">
+<section class="special"></section>
+<!-- <section class="breadcrumb breadcrumb_bg">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -54,17 +41,22 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 <!-- breadcrumb start-->
+
+<div class="m-4" style="text-align: center;">
+    <h2 class="title_man">{{$farm->farmName}}</h2>
+    <!-- <b class="location_man">{{$farm->farmContactInformation}}</b> -->
+</div>
 
 <!-- sparsh start -->
 
-<section class="about section-margin mb-5">
+<section class="about mb-3">
     <div class="container">
         <div class="row">
             <div class="col-md-5 p-3 bg-transparent">
                 <div class="about__img text-center text-md-left">
-                    <img style="border-radius:10px;height:452px;width:100%;" class="img-fluid"
+                    <img style="border-radius:10px;height:352px;width:100%;" class="img-fluid"
                         src="/storage/farm_images/{{$farm->farmPhoto}}" alt="" />
                     <a class="about__img__date text-center">
                         <h3>{{$farm->farmEstd}}</h3>
@@ -78,34 +70,90 @@
             <div class="col-md-7 p-3">
                 <div class="section-intro">
                     <h4 style="font-size:25px;" class="section-intro__title">| About</h4>
-                    <h2 style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;"
-                        class="section-intro__subtitle mt-30">
-                        {{-- We've been creating <br />
-                            Awesome Since 2012 --}}
-                        <b style="font-weight:100;">Farm Type </b> {{$farm->farmType}} <br>
-                        <b style="font-weight:100;">Founder </b> {{$farm->farmManager}} <br>
+                    <div class="section-intro__subtitle mt-4">
+                        <div>
+                            <span style="color: #f9cc41;">
+                            Firm Type
+                            </span>
+                            <span class="pl-1" style="color: #bbb;">
+                            {{$farm->farmType}}
+                            </span>
+                        </div>
+                        <div>
+                            <span style="color: #f9cc41;">
+                            Founder
+                            </span>
+                            <span class="pl-1" style="color: #bbb;">
+                            {{$farm->farmManager}}
+                            </span>
+                        </div>
+                        
                         @if($farm->farmConsultant != null)
-                        <b style="font-weight:100;">Consultant </b> {{$farm->farmConsultant}} <br>
+                        <div>
+                            <span style="color: #f9cc41;">
+                            Consultant
+                            </span>
+                            <span class="pl-1" style="color: #bbb;">
+                            {{$farm->farmConsultant}}
+                            </span>
+                        </div>
                         @endif
+
                         @if($farm->farmPhone != null)
-                        <b style="font-weight:100;">Phone</b> {{$farm->farmPhone}} <br>
+                        <div>
+                            <span style="color: #f9cc41;">
+                            Phone
+                            </span>
+                            <span class="pl-1" style="color: #bbb;">
+                            {{$farm->farmPhone}}
+                            </span>
+                        </div>
                         @endif
+
                         @if($farm->farmEmail != null)
-                        <b style="font-weight:100;">Email</b> {{$farm->farmEmail}} <br>
+                        <div>
+                            <span style="color: #f9cc41;">
+                            Email
+                            </span>
+                            <span class="pl-1" style="color: #bbb;">
+                            {{$farm->farmEmail}}
+                            </span>
+                        </div>
                         @endif
 
-                        <b style="font-weight:100;">Estd</b> {{$farm->farmEstd}} <br>
+                        <div>
+                            <span style="color: #f9cc41;">
+                            Estd
+                            </span>
+                            <span class="pl-1" style="color: #bbb;">
+                            {{$farm->farmEstd}}
+                            </span>
+                        </div>
+
                         @if($farm->farmWebsite != null)
-                        <b style="font-weight:100;">Website</b> {{$farm->farmWebsite}} <br>
+                        <div>
+                            <span style="color: #f9cc41;">
+                            Website
+                            </span>
+                            <span class="pl-1" style="color: #bbb;">
+                            {{$farm->farmWebsite}}
+                            </span>
+                        </div>
                         @endif
-                        @if($farm->farmFacebook != null)
-                        <b style="font-weight:100;">Facebook</b> {{$farm->farmFacebook}} <br>
-                        @endif
-                        <b style="font-weight:100;">Address</b> {{$farm->farmContactInformation}} <br>
 
-                    </h2>
+                        @if($farm->farmContactInformation != null)
+                        <div>
+                            <span style="color: #f9cc41;">
+                            Address
+                            </span>
+                            <span class="pl-1" style="color: #bbb;">
+                            {{$farm->farmContactInformation}}
+                            </span>
+                        </div>
+                        @endif
+                    </div>
                 </div>
-                <a class="btn btn--rightBorder" href="#">Read More</a>
+                <!-- <a class="btn btn--rightBorder" href="#">Read More</a> -->
             </div>
         </div>
     </div>
@@ -264,7 +312,6 @@
 <section class="testimonial section-margin">
     <div class="container">
         <div class="section-intro">
-            {{-- <h3 style="font-family:25px;" class="section-intro__title">| Team</h3> --}}
             <h4 style="font-size:25px;" class="section-intro__title">
                 MEMBER | TEAM
                 @if(Auth::guard('admin')->check())
@@ -289,8 +336,7 @@
                     <img class="mr-4" src="/storage/project_images/grey.png" width="120" height="125" alt="" />
                     @endif
                     <div class="media-body">
-                        <blockquote
-                            style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif">
+                        <blockquote>
                             {!!$team->description!!}
                         </blockquote>
                         <h3>{{$team->memberName}} | {{$team->position}} </h3>
@@ -316,7 +362,7 @@
     </div>
 </section>
 
-<section class="portfolio mb-5">
+<!-- <section class="portfolio mb-5">
     <div style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;"
         class="container">
 
@@ -352,7 +398,7 @@
         </div>
 
     </div>
-</section>
+</section> -->
 
 <section class="tips tips-bg mb-2">
     <div class="container">
@@ -396,9 +442,7 @@
 
 
 @section('queryQuota')
-
-
-
+<!-- <script type="text/javascript" src="{{asset('js/project.js')}}"></script> -->
 <script>
     var testimonialCarousel = $(".testimonialCarousel");
     testimonialCarousel.owlCarousel({
@@ -418,6 +462,5 @@
             }
         }
     });
-
 </script>
 @endsection

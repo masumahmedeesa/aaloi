@@ -48,7 +48,7 @@ Route::get('/userComments/{farmId}/{id}','CommentsController@userReplies');
 // Route::get('/farmslist', 'HomeController@farmsList')->name('farmsList');
 // Route::get('/farm', 'HomeController@farm')->name('farmIndividual');
 
-Route::get('/users/logout','Auth\LoginController@userLogout')->name('users.logout');
+Route::post('/users/logout','Auth\LoginController@userLogout')->name('users.logout');
 
 
 Route::prefix('farmNo')->group(function(){
@@ -60,7 +60,7 @@ Route::prefix('masquerade-park')->group(function(){
     Route::get('/login','Auth\AdminLoginController@showAdminLoginForm')->name('admin.login');
     Route::post('/login','Auth\AdminLoginController@login')->name('admin.login.submit');
     Route::get('/', 'AdminController@index')->name('admin.dashboard');
-    Route::get('/logout','Auth\AdminLoginController@logout')->name('admin.logout');
+    Route::post('/logout','Auth\AdminLoginController@logout')->name('admin.logout');
 
     //other tasks
     Route::get('/addfarms', 'AdminController@addFarms')->name('admin.addfarms');
@@ -79,7 +79,7 @@ Route::prefix('whoOwnsFarm')->group(function(){
     Route::get('/login','Auth\OwnerLoginController@showOwnerLoginForm')->name('owner.login');
     Route::post('/login','Auth\OwnerLoginController@login')->name('owner.login.submit');
     Route::get('/', 'OwnerController@index')->name('owner.dashboard');
-    Route::get('/logout','Auth\OwnerLoginController@logout')->name('owner.logout');
+    Route::post('/logout','Auth\OwnerLoginController@logout')->name('owner.logout');
 
     Route::get('/comments/{id}','CommentsController@ownerIndex')->name('owner.index');
     Route::get('/replies/{farmId}/{id}', 'CommentsController@showReplies');

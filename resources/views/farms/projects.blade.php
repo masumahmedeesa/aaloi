@@ -231,6 +231,5 @@
 
 @section('queryQuota')
     <script type="text/javascript" src="{{asset('js/custom.js')}}"></script>
-
-    <script type="text/javascript" src="{{asset('js/project.js')}}"></script>
+    <!-- <script type="text/javascript" src="{{asset('js/project.js')}}"></script> -->
 @endsection

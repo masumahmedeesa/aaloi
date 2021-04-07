@@ -7,8 +7,8 @@
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    {{-- <title>{{ config('app.name', 'ALOY') }}</title> --}}
-    <title>Aloy</title>
+    {{-- <title>{{ config('app.name', 'AALOI') }}</title> --}}
+    <title>AALOI</title>
 
 
     <!-- <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"> -->

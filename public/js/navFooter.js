@@ -1,24 +1,20 @@
 (function ($) {
     "use strict";
-    // niceSelect js code
-    $(document).ready(function () {
-        $("select").niceSelect();
-    });
-
-    $(".banner_text").slick({
-        vertical: true,
-        verticalSwiping: true,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: true,
-        arrows: true,
-        autoplaySpeed: 3000,
-        pauseOnHover: true,
-        pauseOnHover: true,
-        touchMove: true,
-        verticalSwiping: true,
-        prevArrow: $(".prev"),
-        nextArrow: $(".next"),
+    var map = $(".map");
+    if (map.length) {
+        $(".map").gmap3({
+            center: [40.74, -74.18],
+            zoom: 12,
+        });
+    }
+    // menu fixed js code
+    $(window).scroll(function () {
+        var window_top = $(window).scrollTop() + 1;
+        if (window_top > 50) {
+            $(".main_menu").addClass("menu_fixed animated fadeInDown");
+        } else {
+            $(".main_menu").removeClass("menu_fixed animated fadeInDown");
+        }
     });
 
     // Search Toggle

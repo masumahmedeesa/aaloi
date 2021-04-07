@@ -12,7 +12,7 @@
                             ></a>
                     </div>
                     <div>
-                        <a href="/"><img src="{{asset('img/aloyy21.png')}}" alt="#"/></a>
+                        <a href="/"><img src="{{asset('img/Picture.png')}}" alt="#"/></a>
                         <!-- <h1 style="color: white; font-family: Ubuntu; padding: 0;">ALOY</h1> -->
                     </div>
                     <span class="menu-trigger visible-xs">
@@ -35,7 +35,7 @@
                                     {{-- <li><a href="/projects">project</a></li> --}}
                                     {{-- <li><a href="#">blog</a></li> --}}
                                     <li><a href="#">JOB</a></li>
-                                    <li><a href="/farms">Farms</a></li>
+                                    <li><a href="/farms">Firms</a></li>
                                     @if(Auth::guard()->check())
                                     <li><a href="/dashboard">Dashboard</a></li>
                                     @endif
@@ -63,7 +63,8 @@
                                     <li class="nav-item dropdown">
                                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
                                             aria-haspopup="true" aria-expanded="false" v-pre>
-                                            {{ Auth::user()->name }} <span class="caret"></span>
+                                            {{ Auth::user()->name }} 
+                                            <span class="caret"></span>
                                         </a>
 
                                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

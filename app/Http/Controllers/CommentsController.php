@@ -33,23 +33,26 @@ class CommentsController extends Controller
     public function ownerIndex($id)
     {
         // This should be used as owner's commentsView
+        // dd($id);
         if(! auth()->guard('owner')->check()){
             return redirect('/')-> with('error','Unauthorized Page');
         }
         $farm = Farm::find($id);
         $validate = "yes";
         $comments = DB :: table('comments')
-                          -> join('users', 'users.id','comments.userId')
+                          // -> join('users', 'users.id','comments.userId')
+                          -> join('owners', 'owners.id','comments.userId')
                           -> join('allFarms','allFarms.farmId','comments.farmId')
                           -> distinct()
                           -> selectRaw('comments.commentDesc, comments.id, comments.validity, allFarms.farmId, allFarms.farmName, users.email')
                           -> Where('comments.validity','like','%'.$validate.'%')
                           -> Where('allFarms.farmId',$id)
                           -> paginate(10);
+        // dd($comments);
 
         return view('adminPanel.commentsOwner')->with('comments', $comments)->with('farm',$farm);
-
     }
+
     public function userIndex()
     {
       if(! (auth()->guard()->check()) ){

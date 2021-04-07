@@ -60,7 +60,7 @@
                     <div style="background: #0B3861; color: whitesmoke;">
                         <h3 class="ml-3">ADMIN DASHBOARD | {{Auth::user()->name}}</h3>
                     </div>
-                    <img src="images/hacking.png" class="img-thumbnail" />
+                    <!-- <img src="images/hacking.png" class="img-thumbnail" /> -->
                 </div>
             </div>
         </div>

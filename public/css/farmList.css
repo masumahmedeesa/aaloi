@@ -53,7 +53,7 @@ a:focus {
 body {
     line-height: 24px;
     font-size: 14px;
-    /* font-family: "Roboto", sans-serif; */
+    /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
     font-weight: 300;
     color: #777777;
 }
@@ -195,15 +195,19 @@ button:focus {
 }
 
 .post-entry-horzontal {
-    margin-bottom: 30px;
+    border-radius: 10px;
+    margin-bottom: 20px;
 }
 
 .post-entry-horzontal a {
     display: table;
+    width: 100%;
 }
 
 .post-entry-horzontal a .image,
 .post-entry-horzontal a .text {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
     display: table-cell;
     vertical-align: middle;
 }
@@ -211,6 +215,9 @@ button:focus {
 @media (max-width: 767.98px) {
     .post-entry-horzontal a .image,
     .post-entry-horzontal a .text {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 0px;
         display: block;
     }
 }
@@ -229,31 +236,41 @@ button:focus {
 }
 
 .post-entry-horzontal a .text {
+    /* width: 100%; */
     padding: 30px;
-    width: calc(100 - 200px);
-    border: 1px solid #e6e6e6;
-    border-left: none;
+    /* width: calc(100 - 200px); */
+    /* border: 1px solid #e6e6e6; */
+    /* border-left: none; */
 }
 
 @media (max-width: 767.98px) {
     .post-entry-horzontal a .text {
         width: 100%;
-        height: 280px;
-        border: 1px solid #e6e6e6;
-        border-top: none;
+        /* height: 240px; */
+        /* border: 1px solid #e6e6e6; */
+        /* border-top: none; */
     }
 }
+
 
 .post-entry-horzontal a .text h2 {
     font-size: 20px;
 }
 
 .post-entry-horzontal a .text p {
-    color: #999999;
-    margin-bottom: 30px;
+    color: #000;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.post-entry-horzontal a .text span {
+    color: #000;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 .post-entry-horzontal a:hover {
+    border-radius: 10px;
     -webkit-box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.4);
     box-shadow: 0 4px 20px 0 rgba(14, 12, 12, 0.4);
 }
@@ -272,5 +289,9 @@ button:focus {
     border-radius: 4px;
     text-transform: uppercase;
     color: #fff !important;
-    margin-right: 10px;
+    /* margin-right: 10px; */
+}
+
+.categoryPP {
+    padding: 4px;
 }

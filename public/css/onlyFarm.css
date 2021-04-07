@@ -50,9 +50,34 @@ ul {
 button {
     cursor: pointer;
 }
+.special {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 0;
+    height: 72px;
+    width: 100%;
+    display: table;
+    background: #262532;
+    /* background-image: url("../img/dubai.jpg"); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
+.title_man {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 100;
+    font-size: 40px;
+    color: white;
+}
+.location_man {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 100;
+    /* font-size: 19px; */
+}
 .breadcrumb_bg {
-    background-image: url("../img/dubai.jpg");
+    /* background-image: url("../img/dubai.jpg"); */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -66,7 +91,7 @@ button {
 }
 
 .breadcrumb .breadcrumb_iner {
-    height: 200px;
+    /* height: 200px; */
     width: 100%;
     display: table;
 }
@@ -193,9 +218,9 @@ button {
     left: 0;
 }
 .section-intro__subtitle {
-    /* font-family: 'Oswald', sans-serif; */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: 100;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     color: #fff;
     margin-bottom: 1.5rem;
 }
@@ -389,10 +414,9 @@ button {
     color: #262533;
 }
 
-.testimonialCarousel .owl-nav.disabled + .owl-dots {
+/* .testimonialCarousel .owl-nav.disabled + .owl-dots {
     margin-top: 85px;
 }
-
 .owl-theme .owl-dots .owl-dot span {
     margin: 0;
     min-width: 50px;
@@ -402,17 +426,77 @@ button {
     background: #34343c;
     transition: 0.3s;
 }
-
 .owl-theme .owl-dots .owl-dot.active span {
     height: 4px;
     background: #f9cc41;
     border-radius: 3px;
     box-shadow: 0px 1px 0px #f9cc41;
 }
+.testimonialCarousel .owl-dots .owl-dot span {
+    box-shadow: inset 0px 3px 0px 0px #262533;
+} */
+
+
+
+.testimonial__slide blockquote {
+    font-size: 1.125rem;
+    font-style: italic;
+}
+.testimonial__slide h3 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1.3125rem;
+    font-weight: 100;
+    color: #fff;
+}
+.testimonial__slide p {
+    color: #777777;
+}
+
+.owl-dots button:focus {
+    outline: 0;
+    box-shadow: none;
+}
+
+.testimonialCarousel .owl-nav.disabled + .owl-dots {
+    margin-top: 85px;
+}
+
+.owl-theme .owl-dots .owl-dot span {
+    background: yellow !important;
+    display: block;
+    -webkit-transition: opacity 200ms ease;
+    -moz-transition: opacity 200ms ease;
+    -ms-transition: opacity 200ms ease;
+    -o-transition: opacity 200ms ease;
+    transition: opacity 200ms ease;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+}
+
+/* .owl-theme .owl-dots .owl-dot span {
+    margin: 0;
+    min-width: 50px;
+    height: 2px;
+    border-radius: 0;
+    outline: 2px solid transparent;
+    background: #34343c;
+    transition: 0.3s;
+} */
+
+/* .owl-theme .owl-dots .owl-dot.active span {
+    height: 4px;
+    background: #f9cc41;
+    border-radius: 3px;
+    box-shadow: 0px 1px 0px #f9cc41;
+} */
 
 .testimonialCarousel .owl-dots .owl-dot span {
     box-shadow: inset 0px 3px 0px 0px #262533;
 }
+
+
+
 
 /* Project Completion */
 .blog_part {

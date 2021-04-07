@@ -2,7 +2,7 @@
 <nav class="shadow navbar navbar-expand-lg navbar-dark" style="background: #0B3861; font-size: 17px;">
     <span style="padding-right: 20px;"></span>
     <a href="{{url('/')}}" class="navbar-brand">
-        <kbd style="color: #58FF33;">ALOY</kbd>
+        <kbd style="color: #58FF33;">AALOI</kbd>
     </a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -84,16 +84,29 @@
                     {{ Auth::user()->name }} <span class="caret"></span>
                 </a>
 
+
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                         {{ __('Logout') }}
                     </a>
 
+                    @if(Auth::guard('admin')->check())
+                    <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                    @elseif(Auth::guard('owner')->check())
+                    <form id="logout-form" action="{{ route('owner.logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                    @else
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form>
+                    @endif
+                    
                 </div>
+
             </li>
             @endguest
         </ul>
