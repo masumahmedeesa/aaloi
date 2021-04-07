@@ -23,8 +23,6 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
         script: |
-          cd test
           ls -lah
-          rm -rf *
-          ls -lah
+          ls
           
