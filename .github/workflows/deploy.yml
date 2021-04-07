@@ -13,16 +13,7 @@ jobs:
     - name: Run a multi-line script
       run: |
         tar -cvf deploy.tar .
-    
-    - name: copy file via ssh password
-      uses: appleboy/scp-action@master
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        password: ${{ secrets.PASSWORD }}
-        port: ${{ secrets.PORT }}
-        source: "deploy.tar"
-        target: "/home/aaloiheh/test"
+        ls -lah
 
     - name: executing remote ssh commands using password
       uses: appleboy/ssh-action@master
@@ -33,8 +24,7 @@ jobs:
         port: ${{ secrets.PORT }}
         script: |
           cd test
-          mv deploy.tar .temp
+          ls -lah
           rm -rf *
-          mv .temp deploy.tar
-          tar -xvf deploy.tar
-          rm -rf deploy.tar
+          ls -lah
+          

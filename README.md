@@ -4,6 +4,18 @@
 </pre>
 This is really a dumy version.
 
+
+    - name: copy file via ssh password
+      uses: appleboy/scp-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
+        source: "deploy.tar"
+        target: "/home/aaloiheh/test"
+
+        
 ## For laravel like this project, I prefer ATOM as developing tool with Atom-beautify, file-icons installed as extensions. Thank you
 
 # Infos
