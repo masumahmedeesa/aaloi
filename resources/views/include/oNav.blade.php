@@ -34,7 +34,7 @@
                                     {{-- <li> <a href="/services">Services</a> </li> --}}
                                     {{-- <li><a href="/projects">project</a></li> --}}
                                     {{-- <li><a href="#">blog</a></li> --}}
-                                    <li><a href="#">JOB</a></li>
+                                    <li><a href="/materials">Materials</a></li>
                                     <li><a href="/farms">Firms</a></li>
                                     @if(Auth::guard()->check())
                                     <li><a href="/dashboard">Dashboard</a></li>

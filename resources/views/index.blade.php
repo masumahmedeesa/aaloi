@@ -3,26 +3,22 @@
 @section('insideHead')
 
     <link rel="stylesheet" href="{{asset('css/navFooter.css')}}" />
-
-    <!-- <link rel="stylesheet" href="{{asset('css/style.css')}}" /> -->
     <link rel="stylesheet" href="{{asset('css/indexed.css')}}" />
 
-    <!-- <link rel="stylesheet" href="css/Texa/style.css" />
-    <link rel="stylesheet" href="css/Interior/main.css" />
-    <link rel="stylesheet" href="{{asset('css/Construction/main.css')}}" />
-    <link rel="stylesheet" href="{{asset('css/sparsh/style.css')}}" /> -->
+{{--    <link rel="stylesheet" href="{{asset('css/style.css')}}" />--}}
+{{--    <link rel="stylesheet" href="css/Texa/style.css" />--}}
+{{--    <link rel="stylesheet" href="css/Interior/main.css" />--}}
+{{--    <link rel="stylesheet" href="{{asset('css/Construction/main.css')}}"/>--}}
+{{--    <link rel="stylesheet" href="{{asset('css/sparsh/style.css')}}" />--}}
 
 @endsection
 
 @section('system')
 
-    <!-- banner part start-->
     <section class="banner_part">
         <div class="container">
                     <div class="banner_text">
                         <div class="banner_text_iner">
-                            <!-- <h5>ARCHITECTURE + CONSULTANCY</h5> -->
-                            <!-- <h5>AALOY Inc.</h5> -->
                             <h1>We Guide you</h1>
                             <h2>to build your dream</h2>
                             <h2>project, building or structure</h2>
@@ -30,9 +26,8 @@
                     </div>
         </div>
     </section>
-    <!-- banner part start-->
 
-    <!-- feature section start -->
+    
     <section class="feature-area section-gap">
         <div class="container">
             <div class="row d-flex justify-content-center">
@@ -89,7 +84,7 @@
                         </p>
                     </div>
                 </div>
-                
+
                 <div class="col-lg-4 col-md-6">
                     <div class="single-feature">
                         <img src="img/f2.png" alt="" />
@@ -108,7 +103,7 @@
                         </p>
                     </div>
                 </div>
-                
+
 
             </div>
         </div>
@@ -118,7 +113,7 @@
 
 
 
-    <!-- <section class="blog_part"> 
+    <!-- <section class="blog_part">
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <div class="menu-content pb-60 col-lg-8">
@@ -201,7 +196,8 @@
     <!-- End brand Area -->
 
 @endsection
-<!-- @section('queryQuota')
-    <script type="text/javascript" src="{{asset('js/project.js')}}">
-    </script>
-@endsection -->
+
+{{--@section('queryQuota')--}}
+{{--    <script type="text/javascript" src="{{asset('js/project.js')}}">--}}
+{{--    </script>--}}
+{{--@endsection--}}

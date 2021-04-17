@@ -30,6 +30,7 @@ Route::resource('farms','FarmsController');
 Route::resource('projects','ProjectsController');
 Route::resource('teams','TeamsController');
 Route::resource('comments','CommentsController');
+Route::resource('materials','MaterialsController');
 
 
 Auth::routes();

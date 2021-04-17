@@ -35,7 +35,7 @@
 <!-- Architectural, Consultancy, Engineering & Design, Geotecnical, Surveying -->
 <div class="row m-2 justify-content-center">
     <div class="m-2">
-        <div class="post-entry-horzontal shadow">
+        <div class="extra-box shadow">
             <a href="#">
                 <div class="text">
                     <h2 class="mt-1">Architectural</h2>
@@ -44,7 +44,7 @@
         </div>
     </div>
     <div class="m-2">
-        <div class="post-entry-horzontal shadow">
+        <div class="extra-box shadow">
             <a href="#">
                 <div class="text">
                     <h2 class="mt-1">Consultancy</h2>
@@ -53,7 +53,7 @@
         </div>
     </div>
     <div class="m-2">
-        <div class="post-entry-horzontal shadow">
+        <div class="extra-box shadow">
             <a href="#">
                 <div class="text">
                     <h2 class="mt-1">Engineering & Design</h2>
@@ -62,7 +62,7 @@
         </div>
     </div>
     <div class="m-2">
-        <div class="post-entry-horzontal shadow">
+        <div class="extra-box shadow">
             <a href="#">
                 <div class="text">
                     <h2 class="mt-1">Geotecnical</h2>
@@ -71,7 +71,7 @@
         </div>
     </div>
     <div class="m-2">
-        <div class="post-entry-horzontal shadow">
+        <div class="extra-box shadow">
             <a href="#">
                 <div class="text">
                     <h2 class="mt-1">Surveying</h2>
