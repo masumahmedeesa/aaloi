@@ -31,14 +31,14 @@ class FarmsController extends Controller
         ]);
 
         if ($request->hasFile('farmPhoto')) {
-            $filenameWithExt = $request
-                ->file('farmPhoto')
-                ->getClientOriginalName();
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // $filenameWithExt = $request
+            //     ->file('farmPhoto')
+            //     ->getClientOriginalName();
+            // $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
             $fileExt = $request
                 ->file('farmPhoto')
                 ->getClientOriginalExtension();
-            $fileNameToStore = $filename . '_' . time() . '.' . $fileExt;
+            $fileNameToStore = 'farmPhoto' . '_' . time() . '.' . $fileExt;
             $path = $request
                 ->file('farmPhoto')
                 ->storeAs('public/farm_images', $fileNameToStore);
@@ -111,25 +111,17 @@ class FarmsController extends Controller
             'farmName' => 'required',
             'farmPhoto' => 'image|nullable|mimes:jpeg,jpg,png|max:5999',
         ]);
-        // $ffname;
-
-        //handle the file
+        
         if ($request->hasFile('farmPhoto')) {
-            //Get the file with Extension
-            $filenameWithExt = $request
-                ->file('farmPhoto')
-                ->getClientOriginalName();
-            //Just filename
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // $filenameWithExt = $request
+            //     ->file('farmPhoto')
+            //     ->getClientOriginalName();
+            // $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
 
-            //Just Extension
             $fileExt = $request
                 ->file('farmPhoto')
                 ->getClientOriginalExtension();
-            //Filename to Store
-            $fileNameToStore = $filename . '_' . time() . '.' . $fileExt;
-            // $ffname = $filename;
-            //Upload file
+            $fileNameToStore = 'companyUpdated' . '_' . time() . '.' . $fileExt;
             $path = $request
                 ->file('farmPhoto')
                 ->storeAs('public/farm_images', $fileNameToStore);
@@ -189,14 +181,12 @@ class FarmsController extends Controller
     public function addProject($id)
     {
         $farm = Farm::find($id);
-        // dd($farm);
         return view('adminPanel.addProjects')->with('farm', $farm);
     }
 
     public function addTeams($id)
     {
         $farm = Farm::find($id);
-        // dd($farm);
         return view('adminPanel.addTeams')->with('farm', $farm);
     }
 }

@@ -38,9 +38,9 @@
         @component('components.who')
         @endcomponent
     </div>
-    <div class="card-body">
+    {{-- <div class="card-body">
       <a class="btn btn-success form-control" href="/"> Home Page </a>
-    </div>
+    </div> --}}
 </div>
 
 <div class="container mt-3 mb-5">

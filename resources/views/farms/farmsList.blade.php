@@ -173,20 +173,21 @@
                             According to Vitruvius, the architect should strive to fulfill each of these three attributes.
                         </p> -->
                         <span class="fa fa-location-arrow text-secondary"> {{$farm->farmContactInformation}}</span>
-                        @if(Auth::guard('admin')->check())
-                        <div class="d-flex p-1">
-                            <a href="/farms/{{$farm->farmId}}/edit" class="btn btn-primary btn-sm">EDIT</a>
-                            {{Form::open(['action' => ['FarmsController@destroy',$farm->farmId], 'method' => 'POST']) }}
-                            {{Form::hidden('_method','DELETE')}}
-                            {{Form::submit('D E L E T E',['class' => 'ml-2 btn btn-danger btn-sm'])}}
-                            {{ Form::close() }}
-                        </div>
-                        @endif
                     </div>
                 </a>
             </div>
         </div>
     </div>
+
+    @if(Auth::guard('admin')->check())
+    <div class="d-flex pb-3 pl-3">
+        <a href="/farms/{{$farm->farmId}}/edit" class="btn btn-primary btn-sm">EDIT</a>
+        {{Form::open(['action' => ['FarmsController@destroy',$farm->farmId], 'method' => 'POST']) }}
+        {{Form::hidden('_method','DELETE')}}
+        {{Form::submit('D E L E T E',['class' => 'ml-2 btn btn-danger btn-sm'])}}
+        {{ Form::close() }}
+    </div>
+    @endif
 
     @endforeach
     {{$farms->links()}}

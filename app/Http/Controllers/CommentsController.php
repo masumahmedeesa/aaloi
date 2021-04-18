@@ -94,7 +94,7 @@ class CommentsController extends Controller
 
       $comment->save();
 
-      return redirect("/farms/$routingMan")->with('success','Successfully Submitted Comment!');
+      return redirect()->back()->with('success','Successfully Submitted Comment!');
     }
 
 

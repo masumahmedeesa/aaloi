@@ -30,7 +30,7 @@ Route::resource('farms','FarmsController');
 Route::resource('projects','ProjectsController');
 Route::resource('teams','TeamsController');
 Route::resource('comments','CommentsController');
-Route::resource('materials','MaterialsController');
+// Route::resource('materials-admin','MaterialsController');
 
 
 Auth::routes();
@@ -40,6 +40,8 @@ Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 Route::get('/userComments','CommentsController@userIndex')->name('userIndex');
 Route::get('/userComments/{farmId}/{id}','CommentsController@userReplies');
 
+Route::get('/companies','MaterialPublicController@showCompanies')->name('companies');
+Route::get('/companies/{companyId}','MaterialPublicController@showMaterials')->name('materials');
 
 // Route::get('/main', 'HomeController@mainPage')->name('mainPage');
 // Route::get('/about', 'HomeController@aboutPage')->name('about');
@@ -67,6 +69,21 @@ Route::prefix('masquerade-park')->group(function(){
     Route::get('/addfarms', 'AdminController@addFarms')->name('admin.addfarms');
     // Route::post('/addfarms','AdminController@postFarms')->name('admin.addfarms.post');
 
+    // materials
+    Route::post('/createCategory','MaterialsController@createCategory')->name('admin.createCategory');
+    Route::post('/createSubCategory','MaterialsController@createSubCategory')->name('admin.createSubCategory');
+    Route::get('/showCategory','MaterialsController@showCategory')->name('admin.showCategory');
+    
+    Route::post('/createCompany','MaterialsController@createCompany')->name('admin.createCompany');
+    Route::get('/editCompany/{companyId}','MaterialsController@editCompany')->name('admin.editCompany');
+    Route::put('/updateCompany/{companyId}','MaterialsController@updateCompany')->name('admin.updateCompany');
+    Route::delete('/destroyCompany/{companyId}','MaterialsController@destroyCompany')->name('admin.destroyCompany');
+    
+    Route::get('/addProduct/{companyId}','MaterialsController@addProduct')->name('admin.addProduct');
+    Route::post('/createProduct','MaterialsController@createProduct')->name('admin.createProduct');
+    Route::put('/updateProduct/{productId}','MaterialsController@updateProduct')->name('admin.updateProduct');
+    Route::get('/editProduct/{companyId}','MaterialsController@editProduct')->name('admin.editProduct');
+    Route::delete('/destroyProduct/{productId}','MaterialsController@destroyProduct')->name('admin.destroyProduct');
 
     //password resets
     Route::post('/password/email','Auth\AdminForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');

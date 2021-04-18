@@ -26,30 +26,13 @@
 
 @section('system')
 
-<!-- breadcrumb start-->
 <section class="special"></section>
-<!-- <section class="breadcrumb breadcrumb_bg">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="breadcrumb_iner text-center">
-                    <div class="breadcrumb_iner_item">
-                        <h2>{{$farm->farmName}}</h2>
-                        <a>Location : {{$farm->farmContactInformation}}</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section> -->
-<!-- breadcrumb start-->
 
 <div class="m-4" style="text-align: center;">
     <h2 class="title_man">{{$farm->farmName}}</h2>
-    <!-- <b class="location_man">{{$farm->farmContactInformation}}</b> -->
+    {{$farm->farmContactInformation}}
 </div>
 
-<!-- sparsh start -->
 
 <section class="about mb-3">
     <div class="container">
@@ -186,8 +169,6 @@
                 </div>
             </div>
 
-            <!-- ID 01 -->
-
             <div class="col-sm-4 mb-4 mb-xl-0">
                 <div class="media align-items-center overview__single">
                     <span class="overview__single__icon"><i class="ti-gift"></i></span>
@@ -203,16 +184,19 @@
     </div>
 </section>
 
+@if(Auth::guard('admin')->check())
+<div class="m-4">
+    <a href="/farmNo/{{$farm->farmId}}/addProjects" class="ml-2 btn btn-sm btn-outline-success">A D D PROJECT</a>
+</div>
+@endif
 
+@if(count($projects)>0)
 <section class="portfolio section-margin">
     <div class="container">
         <div class="section-intro">
             <h4 style="font-size:25px;" class="section-intro__title">| PORTFOLIO</h4>
             <h2 class="section-intro__subtitle bottom-border">
                 Latest Completed Projects ({{count($projects)}})
-                @if(Auth::guard('admin')->check())
-                <a href="/farmNo/{{$farm->farmId}}/addProjects" class="ml-2 btn btn-sm btn-outline-success">A D D</a>
-                @endif
             </h2>
         </div>
 
@@ -302,21 +286,23 @@
     @else
     <h1 style="color:wheat;">No Projects Added Yet ! </h1>
     @endif
-
-    <!-- ID 02 -->
-
     </div>
 </section>
+@endif
 
 
+@if(Auth::guard('admin')->check())
+<div class="m-4">
+    <a href="/farmNo/{{$farm->farmId}}/addTeams" class="ml-2 btn btn-sm btn-outline-success">A D D MEMBER</a>
+</div>
+@endif
+
+@if(count($teams)>0)
 <section class="testimonial section-margin">
     <div class="container">
         <div class="section-intro">
             <h4 style="font-size:25px;" class="section-intro__title">
                 MEMBER | TEAM
-                @if(Auth::guard('admin')->check())
-                <a href="/farmNo/{{$farm->farmId}}/addTeams" class="ml-2 btn btn-sm btn-outline-success">A D D</a>
-                @endif
             </h4>
             <h2 style="font-size:20px;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"
                 class="section-intro__subtitle bottom-border">
@@ -324,7 +310,11 @@
             </h2>
         </div>
 
+        @if(count($teams) == 1)
         <div class="owl-carousel owl-theme testimonialCarousel">
+        @else
+        <div class="owl-carousel owl-theme testimonialCarouselForTwo">
+        @endif
             @if(count($teams)>0)
             @foreach($teams as $team)
             <div class="item">
@@ -361,7 +351,7 @@
         </div>
     </div>
 </section>
-
+@endif
 <!-- <section class="portfolio mb-5">
     <div style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;"
         class="container">
@@ -425,7 +415,7 @@
                 <button type="submit" class="btn btn-dark btn--leftBorder btn--rightBorder">SEND</button>
                 </form>
                 @else
-                <a class="btn btn-sm btn-dark btn--leftBorder btn--rightBorder">Login First To Send</a>
+                <a href="/login" class="btn btn-sm btn-dark btn--leftBorder btn--rightBorder">Login First To Send</a>
                 @endif
 
             </div>
@@ -442,10 +432,28 @@
 
 
 @section('queryQuota')
-<!-- <script type="text/javascript" src="{{asset('js/project.js')}}"></script> -->
+{{-- <script type="text/javascript" src="{{asset('js/project.js')}}"></script> --}}
 <script>
     var testimonialCarousel = $(".testimonialCarousel");
     testimonialCarousel.owlCarousel({
+        loop: true,
+        margin: 50,
+        autoplay: true,
+        nav: false,
+        dots: true,
+        smartSpeed: 500,
+        responsive: {
+            0: {
+                items: 2
+            },
+            1000: {
+                items: 2,
+                loop: true
+            }
+        }
+    });
+    var testimonialCarouselForTwo = $(".testimonialCarouselForTwo");
+    testimonialCarouselForTwo.owlCarousel({
         loop: true,
         margin: 50,
         autoplay: true,

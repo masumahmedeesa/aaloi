@@ -7,15 +7,15 @@
 </div>
 
 
+
 <div class="adminIndex mt-3">
-    <a href="{{ route('comments.index') }}" class="personal-link">
-        <h5> View Comments <span style="color: rgb(56, 204, 51);">|</span> </h5>
+    <a href="{{ route('admin.showCategory') }}" class="personal-link">
+        <h5> Categories <span style="color: rgb(56, 204, 51);">|</span> </h5>
     </a>
 </div>
 
-
 <div class="adminIndex mt-3">
     <a href="#" class="personal-link">
-        <h5> Upload or Delete <span style="color: rgb(56, 204, 51);">|</span> </h5>
+        <h5> Material Companies <span style="color: rgb(56, 204, 51);">|</span> </h5>
     </a>
 </div>

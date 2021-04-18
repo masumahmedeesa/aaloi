@@ -1,3 +1,14 @@
+php artisan migrate:rollback
+php artisan migrate
+
+  php artisan make:model Subcategory -m
+  php artisan make:model MaterialCompany -m
+  
+composer self-update --2
+COMPOSER_MEMORY_LIMIT=-1 composer require munafio/chatify
+
+php atrisan make:controller MaterialController
+
 # Entrepreneur Project
 <pre>
 	Website Link : https://ouraloy.herokuapp.com

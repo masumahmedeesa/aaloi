@@ -27,10 +27,10 @@ class TeamsController extends Controller
         ]);
 
         if($request->hasFile('memberPhoto')){
-            $filenameWithExt = $request->file('memberPhoto')->getClientOriginalName ();
-            $filename = pathinfo($filenameWithExt,PATHINFO_FILENAME);
+            // $filenameWithExt = $request->file('memberPhoto')->getClientOriginalName ();
+            // $filename = pathinfo($filenameWithExt,PATHINFO_FILENAME);
             $fileExt = $request->file('memberPhoto')->getClientOriginalExtension();
-            $fileNameToStore = $filename.'_'.time().'.'.$fileExt;
+            $fileNameToStore = 'memberPhoto'.'_'.time().'.'.$fileExt;
             $prothom = $request->input('farmId');
             $path = $request->file('memberPhoto')->storeAs("public/project_images/$prothom/teamPhoto",$fileNameToStore);
         } else{
@@ -80,10 +80,10 @@ class TeamsController extends Controller
         $team = Teams::find($memberId);
 
         if($request->hasFile('memberPhoto')){
-            $filenameWithExt = $request->file('memberPhoto')->getClientOriginalName ();
-            $filename = pathinfo($filenameWithExt,PATHINFO_FILENAME);
+            // $filenameWithExt = $request->file('memberPhoto')->getClientOriginalName ();
+            // $filename = pathinfo($filenameWithExt,PATHINFO_FILENAME);
             $fileExt = $request->file('memberPhoto')->getClientOriginalExtension();
-            $fileNameToStore = $filename.'_'.time().'.'.$fileExt;
+            $fileNameToStore = 'memberPhoto'.'_'.time().'.'.$fileExt;
             $prothom = $team->farmId;
             $path = $request->file('memberPhoto')->storeAs("public/project_images/$prothom/teamPhoto",$fileNameToStore);
         }

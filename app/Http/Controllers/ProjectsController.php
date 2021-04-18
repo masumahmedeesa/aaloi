@@ -8,32 +8,18 @@ use Illuminate\Http\Request;
 
 class ProjectsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         $this->validate($request,[
@@ -43,10 +29,10 @@ class ProjectsController extends Controller
         ]);
 
         if($request->hasFile('projectPhoto1')){
-            $filenameWithExt = $request->file('projectPhoto1')->getClientOriginalName ();
-            $filename = pathinfo($filenameWithExt,PATHINFO_FILENAME);
+            // $filenameWithExt = $request->file('projectPhoto1')->getClientOriginalName ();
+            // $filename = pathinfo($filenameWithExt,PATHINFO_FILENAME);
             $fileExt = $request->file('projectPhoto1')->getClientOriginalExtension();
-            $fileNameToStore = $filename.'_'.time().'.'.$fileExt;
+            $fileNameToStore = 'projectPhoto'.'_'.time().'.'.$fileExt;
             $prothom = $request->input('farmId');
             $ektaname = $request->input('projectName');
             $path = $request->file('projectPhoto1')->storeAs("public/project_images/$prothom/$ektaname",$fileNameToStore);
@@ -70,24 +56,14 @@ class ProjectsController extends Controller
         return redirect("/farms/$routingMan")->with('success','Successfully Uploaded Project!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Projects  $projects
-     * @return \Illuminate\Http\Response
-     */
+
     public function show($projectId)
     {
         $project = Projects::find($projectId);
         return view('farms.projects')->with('project',$project);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Projects  $projects
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($projectId)
     {
         $project = Projects::find($projectId);
@@ -113,37 +89,37 @@ class ProjectsController extends Controller
         $project = Projects::find($id);
 
                 if($request->hasFile('projectPhoto1')){
-                    $filenameWithExt = $request->file('projectPhoto1')->getClientOriginalName ();
-                    $filename = pathinfo($filenameWithExt,PATHINFO_FILENAME);
+                    // $filenameWithExt = $request->file('projectPhoto1')->getClientOriginalName ();
+                    // $filename = pathinfo($filenameWithExt,PATHINFO_FILENAME);
                     $fileExt = $request->file('projectPhoto1')->getClientOriginalExtension();
-                    $fileNameToStore = $filename.'_'.time().'.'.$fileExt;
+                    $fileNameToStore = 'projectPhoto'.'_'.time().'.'.$fileExt;
                     // $kk = $filename;
                     $path = $request->file('projectPhoto1')->storeAs("public/project_images/$project->farmId/$project->projectName",$fileNameToStore);
                 }
 
                 if($request->hasFile('projectPhoto2')){
-                    $filenameWithExt2 = $request->file('projectPhoto2')->getClientOriginalName ();
-                    $filename2 = pathinfo($filenameWithExt2,PATHINFO_FILENAME);
+                    // $filenameWithExt2 = $request->file('projectPhoto2')->getClientOriginalName ();
+                    // $filename2 = pathinfo($filenameWithExt2,PATHINFO_FILENAME);
                     $fileExt2 = $request->file('projectPhoto2')->getClientOriginalExtension();
-                    $fileNameToStore2 = $filename2.'_'.time().'.'.$fileExt2;
+                    $fileNameToStore2 = 'projectPhoto'.'_'.time().'.'.$fileExt2;
                     // $kk = $filename;
                     $path = $request->file('projectPhoto2')->storeAs("public/project_images/$project->farmId/$project->projectName",$fileNameToStore2);
                 }
 
                 if($request->hasFile('projectPhoto3')){
-                    $filenameWithExt3 = $request->file('projectPhoto3')->getClientOriginalName ();
-                    $filename3 = pathinfo($filenameWithExt3,PATHINFO_FILENAME);
+                    // $filenameWithExt3 = $request->file('projectPhoto3')->getClientOriginalName ();
+                    // $filename3 = pathinfo($filenameWithExt3,PATHINFO_FILENAME);
                     $fileExt3 = $request->file('projectPhoto3')->getClientOriginalExtension();
-                    $fileNameToStore3 = $filename3.'_'.time().'.'.$fileExt3;
+                    $fileNameToStore3 = 'projectPhoto'.'_'.time().'.'.$fileExt3;
                     // $kk = $filename;
                     $path = $request->file('projectPhoto3')->storeAs("public/project_images/$project->farmId/$project->projectName",$fileNameToStore3);
                 }
 
                 if($request->hasFile('projectPhoto4')){
-                    $filenameWithExt4 = $request->file('projectPhoto4')->getClientOriginalName ();
-                    $filename4 = pathinfo($filenameWithExt4,PATHINFO_FILENAME);
+                    // $filenameWithExt4 = $request->file('projectPhoto4')->getClientOriginalName ();
+                    // $filename4 = pathinfo($filenameWithExt4,PATHINFO_FILENAME);
                     $fileExt4 = $request->file('projectPhoto4')->getClientOriginalExtension();
-                    $fileNameToStore4 = $filename4.'_'.time().'.'.$fileExt4;
+                    $fileNameToStore4 = 'projectPhoto'.'_'.time().'.'.$fileExt4;
                     // $kk = $filename;
                     $path = $request->file('projectPhoto4')->storeAs("public/project_images/$project->farmId/$project->projectName",$fileNameToStore4);
                 }
@@ -192,12 +168,7 @@ class ProjectsController extends Controller
         return redirect("/projects/$no")->with('success','Project Updated!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Projects  $projects
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
         $project = Projects::find($id);

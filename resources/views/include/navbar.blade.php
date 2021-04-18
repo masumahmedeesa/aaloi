@@ -1,4 +1,3 @@
-
 <nav class="shadow navbar navbar-expand-lg navbar-dark" style="background: #0B3861; font-size: 17px;">
     <span style="padding-right: 20px;"></span>
     <a href="{{url('/')}}" class="navbar-brand">
@@ -12,7 +11,7 @@
 
 
     <div class="collapse navbar-collapse" id="navbarNav">
-        {{-- <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav mr-auto">
             <span style="padding-right: 20px;"></span>
             <li class="nav-item">
                 <a href="/" class="nav-link">
@@ -22,33 +21,24 @@
             <li class="nav-item">
                 <a href="/farms" class="nav-link font-weight-normal">
                     <i class="d-lg-none mr-2 fa fa-cogs"></i>
-                    Farms
+                    Firms
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/companies" class="nav-link">
                     <i class="d-lg-none mr-2 fa fa-puzzle-piece"></i>
-                    Publications
+                    Materials
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">
-
+                <a href="/about" class="nav-link">
                     <i class="d-lg-none mr-2 fa fa-slack"></i>
-                    News
+                    About
                 </a>
             </li>
+        </ul>
 
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <!-- <h5>Resources</h5> -->
-                    <i class="d-lg-none mr-2 fa fa-files-o"></i>
-                    Research
-                </a>
-            </li>
-        </ul> --}}
-
-        <form class="shadow form-inline mt-0 ml-auto">
+        {{-- <form class="shadow form-inline mt-0 ml-auto">
             <div class="input-group">
                 <input type="search" class="form-control form-control-sm bg-light"
                     style="color: rgb(6, 6, 7); width: 400px;" placeholder="Search">
@@ -57,23 +47,28 @@
                     </button>
                 </div>
             </div>
-        </form>
+        </form> --}}
 
-        
+
         <ul class="navbar-nav ml-auto">
-            <!-- Authentication Links -->
             @guest
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('login') }}">
-                <i class="d-lg-none mr-2 fa fa-files-o"></i>
-                    Login
-                </a>
+                @if(Auth::guard('admin')->check())
+                <a class="nav-link" href="{{ route('admin.login') }}">
+                    @elseif(Auth::guard('owner')->check())
+                    <a class="nav-link" href="{{ route('owner.login') }}">
+                        @else
+                        <a class="nav-link" href="{{ route('login') }}">
+                            @endif
+                            <i class="d-lg-none mr-2 fa fa-files-o"></i>
+                            Login
+                        </a>
             </li>
             @if (Route::has('register'))
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('register') }}">
-                <i class="d-lg-none mr-2 fa fa-files-o"></i>
-                Register
+                    <i class="d-lg-none mr-2 fa fa-files-o"></i>
+                    Register
                 </a>
             </li>
             @endif
@@ -84,11 +79,10 @@
                     {{ Auth::user()->name }} <span class="caret"></span>
                 </a>
 
-
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
+                        Logout
                     </a>
 
                     @if(Auth::guard('admin')->check())
@@ -104,7 +98,7 @@
                         @csrf
                     </form>
                     @endif
-                    
+
                 </div>
 
             </li>
