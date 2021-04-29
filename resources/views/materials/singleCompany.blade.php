@@ -33,13 +33,13 @@
         <div class="row">
             <div class="col-md-5 p-3 bg-transparent">
                 <div class="about__img text-center text-md-left">
-                    <img style="border-radius:10px;height:352px;width:100%;" class="img-fluid"
+                    <img style="border-radius:10px;height:352px;width:100%; object-fit: cover" class="img-fluid"
                         src="/storage/company_images/{{$company->photo1}}" alt="LOGO" />
                     @if($company->estd)
                     <a class="about__img__date text-center">
                         <h3>{{2021 - $company->estd}}</h3>
                         <p style="color:blueviolet;">
-                            Estd 
+                            Estd
                             <br /> OF GLORY
                         </p>
                     </a>
@@ -50,18 +50,19 @@
                 <div class="section-intro">
                     <h4 style="font-size:25px;" class="section-intro__title">| About</h4>
                     <div class="section-intro__subtitle mt-4">
-                        
+
                         @if($company->categories)
                         <div>
                             <span style="color: #f9cc41;">
                                 Type
                             </span>
                             <span>
-                                    @foreach (explode(',', $company->categories) as $item)
-                                        <span class="bg-success text-white m-1" style="border-radius: 6px; padding-left: 4px; padding-right:4px; padding-top: 1px; padding-bottom: 1px;">
-                                            {{$item}}
-                                        </span>
-                                    @endforeach
+                                @foreach (explode(',', $company->categories) as $item)
+                                <span class="bg-success text-white m-1"
+                                    style="border-radius: 6px; padding-left: 4px; padding-right:4px; padding-top: 1px; padding-bottom: 1px;">
+                                    {{$item}}
+                                </span>
+                                @endforeach
                             </span>
                         </div>
                         @endif
@@ -72,11 +73,12 @@
                                 Materials
                             </span>
                             <span>
-                                    @foreach (explode(',', $company->subcategories) as $item)
-                                        <span class="bg-white text-dark m-1" style="border-radius: 6px; padding-left: 4px; padding-right:4px; padding-top: 1px; padding-bottom: 1px;">
-                                            {{$item}}
-                                        </span>
-                                    @endforeach
+                                @foreach (explode(',', $company->subcategories) as $item)
+                                <span class="bg-white text-dark m-1"
+                                    style="border-radius: 6px; padding-left: 4px; padding-right:4px; padding-top: 1px; padding-bottom: 1px;">
+                                    {{$item}}
+                                </span>
+                                @endforeach
                             </span>
                         </div>
                         @endif
@@ -101,7 +103,7 @@
                             <span class="pl-1" style="color: #bbb;">
                                 {{$company->website}}
                             </span>
-                        </div>  
+                        </div>
                         @endif
 
                         @if($company->description)
@@ -124,65 +126,71 @@
 </section>
 
 @if(Auth::guard('admin')->check())
-    <div class="m-4">
-        <a href="/masquerade-park/addProduct/{{$company->companyId}}" class="ml-2 btn btn-sm btn-outline-success">A D D PRODUCT</a>
-    </div>
+<div class="m-4">
+    <a href="/masquerade-park/addProduct/{{$company->companyId}}" class="ml-2 btn btn-sm btn-outline-success">A D D
+        PRODUCT</a>
+</div>
 @endif
 
 @if(count($company->materials) > 0)
 <section class="portfolio section-margin">
     <div class="container">
         <div class="section-intro">
-            <h4 style="font-size:25px;" class="section-intro__title">| PRODUCTS</h4>
+            <h4 style="font-size:25px;" class="section-intro__title">| MATERIALS</h4>
             <h2 class="section-intro__subtitle bottom-border">
-                All products {{count($company->materials)}}
+                All materials {{count($company->materials)}}
             </h2>
         </div>
 
         @if(count($company->materials) > 0)
         @foreach ($company->materials as $item)
-        <div class="row align-items-end pb-md-5">
-            <div class="col-md-6 p-3">
-                <div>
-                    @if($item->photo1 === 'noimage.jpg')
-                    <img style="border-radius:10px;height:330px;width:650px;" class="img-fluid shadow"
-                        src="/storage/company_images/noimage.jpg" alt="material" />
-                    @else
-                    <img style="border-radius:10px;height:330px;width:650px;" class="img-fluid shadow"
-                        src="/storage/material_images/{{$company->companyId}}/{{$item->photo1}}" alt="material" />
-                    @endif
+        <div style="cursor: pointer" onclick="window.location='/companies/{{$company->companyId}}/{{$item->materialId}}'">
+            <div class="row align-items-end pb-md-5">
+                <div class="col-md-6 p-3 linkGoto">
+                    <div>
+                        @if($item->photo1 === 'noimage.jpg')
+                        <img style="border-radius:10px;height:330px;width:650px; object-fit: cover" class="img-fluid shadow"
+                            src="/storage/company_images/noimage.jpg" alt="material" />
+                        @else
+                        <img style="border-radius:10px;height:330px;width:650px; object-fit: cover" class="img-fluid shadow"
+                            src="/storage/material_images/{{$company->companyId}}/{{$item->photo1}}" alt="material" />
+                        @endif
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-6 p-3">
-                {{-- <h4 class="section-intro__title left-border">estd</h4> --}}
-                <h2 style="font-size:25px;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;"
-                    class="section-intro__subtitle small">
-                    {{$item->name}}
-                </h2>
-                <p style="font-size:20px;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif">
-                    @if($item->price)
-                    <b style="font-weight:100;">Price </b>
+                <div class="col-md-6 p-3">
+                    {{-- <h4 class="section-intro__title left-border">estd</h4> --}}
+                    <h2 style="font-size:25px;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;"
+                        class="section-intro__subtitle small">
+                        {{$item->name}}
+                    </h2>
+                    <p
+                        style="font-size:20px;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif">
+                        @if($item->price)
+                        <b style="font-weight:100;">Price </b>
                         <span style="color: #fff;">{{$item->price}} </span>
-                    <br>
-                    @endif
+                        <br>
+                        @endif
 
-                    @if($item->avialable)
-                    <b style="font-weight:100;">Availability </b>
+                        @if($item->avialable)
+                        <b style="font-weight:100;">Availability </b>
                         <span style="color: #fff;">{{$item->avialable}} </span>
-                    <br>
-                    @endif
+                        <br>
+                        @endif
 
 
-                    @if($item->description)
+                        @if($item->description)
                         <b style="font-weight:100;">About </b>
                         <span style="color: #fff;">{!!$item->description!!} </span>
                         <br>
-                    @endif
-                    
-                </p>
-                {{-- <a class="btn btn--rightBorder" href="#">Read More</a> --}}
+                        @endif
+
+                        <a href="/companies/{{$company->companyId}}/{{$item->materialId}}">View Details</a>
+                    </p>
+
+                </div>
             </div>
         </div>
+
 
         @if(Auth::guard('admin')->check())
         <div class="d-flex pl-3">

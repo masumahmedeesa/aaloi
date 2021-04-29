@@ -42,6 +42,7 @@ Route::get('/userComments/{farmId}/{id}','CommentsController@userReplies');
 
 Route::get('/companies','MaterialPublicController@showCompanies')->name('companies');
 Route::get('/companies/{companyId}','MaterialPublicController@showMaterials')->name('materials');
+Route::get('/companies/{companyId}/{materialId}','MaterialPublicController@showMaterial')->name('material');
 
 // Route::get('/main', 'HomeController@mainPage')->name('mainPage');
 // Route::get('/about', 'HomeController@aboutPage')->name('about');

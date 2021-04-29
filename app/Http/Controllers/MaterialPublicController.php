@@ -23,4 +23,10 @@ class MaterialPublicController extends Controller
         // dd($company[0]);
         return view('materials.singleCompany')->with('company', $company[0]);
     }
+
+    public function showMaterial($companyId, $materialId){
+        $material = Materials::find($materialId);
+        $company = MaterialCompany::find($companyId);
+        return view('materials.singleMaterial')->with('material', $material)->with('company',$company);
+    }
 }
