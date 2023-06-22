@@ -9,6 +9,21 @@ COMPOSER_MEMORY_LIMIT=-1 composer require munafio/chatify
 
 php atrisan make:controller MaterialController
 
+## INSTALL PHP 7.1.33
+I recommend shivammathur/php instead. Here's an example of how to use it:
+
+brew tap shivammathur/php
+
+brew install shivammathur/php/php@7.3
+
+brew link --overwrite --force shivammathur/php/php@7.3
+
+Then restart the terminal and test your PHP version:
+
+php -v
+
+using this, can be installed multiple php version
+
 # Entrepreneur Project
 <pre>
 	Website Link : https://ouraloy.herokuapp.com
