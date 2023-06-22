@@ -1,25 +1,23 @@
 @extends('layouts.originalLayout')
 
 @section('extra')
-<!-- <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500" rel="stylesheet" /> -->
-<!-- <link href="https://fonts.googleapis.com/css?family=Roboto:300i,400,500" rel="stylesheet" /> -->
 <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css" />
 @endsection
 
 @section('insideHead')
 <link rel="stylesheet" href="{{asset('css/navFooter.css')}}" />
-<!-- <link rel="stylesheet" href="{{asset('css/style.css')}}" />  -->
 <link rel="stylesheet" href="{{asset('css/onlyFarm.css')}}" />
-<!-- <link rel="stylesheet" href="{{asset('css/sparsh/style.css')}}" /> -->
 <style type="text/css">
     #map {
-      height: 300px;  /* The height is 400 pixels */
-      width: 100%;  /* The width is the width of the web page */
-     }
+        height: 300px;
+        /* The height is 400 pixels */
+        width: 100%;
+        /* The width is the width of the web page */
+    }
+
     p {
         color: rgba(255, 255, 255, 0.5);
     }
-
 </style>
 
 @endsection
@@ -39,7 +37,7 @@
         <div class="row">
             <div class="col-md-5 p-3 bg-transparent">
                 <div class="about__img text-center text-md-left">
-                    <img style="border-radius:10px;height:352px;width:100%;" class="img-fluid"
+                    <img style="border-radius:10px;height:352px;width:100%; object-fit: cover" class="img-fluid"
                         src="/storage/farm_images/{{$farm->farmPhoto}}" alt="" />
                     <a class="about__img__date text-center">
                         <h3>{{$farm->farmEstd}}</h3>
@@ -56,28 +54,28 @@
                     <div class="section-intro__subtitle mt-4">
                         <div>
                             <span style="color: #f9cc41;">
-                            Firm Type
+                                Firm Type
                             </span>
                             <span class="pl-1" style="color: #bbb;">
-                            {{$farm->farmType}}
+                                {{$farm->farmType}}
                             </span>
                         </div>
                         <div>
                             <span style="color: #f9cc41;">
-                            Founder
+                                Founder
                             </span>
                             <span class="pl-1" style="color: #bbb;">
-                            {{$farm->farmManager}}
+                                {{$farm->farmManager}}
                             </span>
                         </div>
-                        
+
                         @if($farm->farmConsultant != null)
                         <div>
                             <span style="color: #f9cc41;">
-                            Consultant
+                                Consultant
                             </span>
                             <span class="pl-1" style="color: #bbb;">
-                            {{$farm->farmConsultant}}
+                                {{$farm->farmConsultant}}
                             </span>
                         </div>
                         @endif
@@ -85,10 +83,10 @@
                         @if($farm->farmPhone != null)
                         <div>
                             <span style="color: #f9cc41;">
-                            Phone
+                                Phone
                             </span>
                             <span class="pl-1" style="color: #bbb;">
-                            {{$farm->farmPhone}}
+                                {{$farm->farmPhone}}
                             </span>
                         </div>
                         @endif
@@ -96,30 +94,30 @@
                         @if($farm->farmEmail != null)
                         <div>
                             <span style="color: #f9cc41;">
-                            Email
+                                Email
                             </span>
                             <span class="pl-1" style="color: #bbb;">
-                            {{$farm->farmEmail}}
+                                {{$farm->farmEmail}}
                             </span>
                         </div>
                         @endif
 
                         <div>
                             <span style="color: #f9cc41;">
-                            Estd
+                                Estd
                             </span>
                             <span class="pl-1" style="color: #bbb;">
-                            {{$farm->farmEstd}}
+                                {{$farm->farmEstd}}
                             </span>
                         </div>
 
                         @if($farm->farmWebsite != null)
                         <div>
                             <span style="color: #f9cc41;">
-                            Website
+                                Website
                             </span>
                             <span class="pl-1" style="color: #bbb;">
-                            {{$farm->farmWebsite}}
+                                {{$farm->farmWebsite}}
                             </span>
                         </div>
                         @endif
@@ -127,10 +125,10 @@
                         @if($farm->farmContactInformation != null)
                         <div>
                             <span style="color: #f9cc41;">
-                            Address
+                                Address
                             </span>
                             <span class="pl-1" style="color: #bbb;">
-                            {{$farm->farmContactInformation}}
+                                {{$farm->farmContactInformation}}
                             </span>
                         </div>
                         @endif
@@ -145,6 +143,8 @@
 <section class="overview">
     <div class="container">
         <div class="row">
+
+            @if($farm->farmTasks > 0)
             <div class="col-sm-4 mb-4 mb-xl-0">
                 <div class="media align-items-center overview__single">
                     <span class="overview__single__icon"><i class="ti-crown"></i></span>
@@ -156,7 +156,9 @@
                     </div>
                 </div>
             </div>
+            @endif
 
+            @if($farm->farmTasks > 0)
             <div class="col-sm-4 mb-4 mb-xl-0">
                 <div class="media align-items-center overview__single">
                     <span class="overview__single__icon"><i class="ti-face-smile"></i></span>
@@ -168,7 +170,9 @@
                     </div>
                 </div>
             </div>
+            @endif
 
+            @if($farm->farmTasksOn > 0)
             <div class="col-sm-4 mb-4 mb-xl-0">
                 <div class="media align-items-center overview__single">
                     <span class="overview__single__icon"><i class="ti-gift"></i></span>
@@ -180,6 +184,8 @@
                     </div>
                 </div>
             </div>
+            @endif
+
         </div>
     </div>
 </section>
@@ -201,82 +207,34 @@
         </div>
 
         @if(count($projects)>0)
-        @for($i=0;$i<count($projects);$i=$i+2)
-        @if($i+1<count($projects))
-        <div class="row align-items-end pb-md-5 mb-4">
-            <div class="col-md-7 p-3">
-                <div>
-                    <img class="img-fluid shadow" style="border-radius:10px; height:330px; width:620px;"
-                        src="/storage/project_images/{{$projects[$i]->farmId}}/{{$projects[$i]->projectName}}/{{$projects[$i]->projectPhoto1}}"
-                        alt="" />
+
+        {{-- @for($i=0;$i<count($projects);$i=$i+2) --}}
+        @for($i=0;$i<count($projects);$i=$i+1) {{-- @if($i+1<count($projects)) --}} <div style="cursor: pointer"
+            onclick="window.location='/projects/{{$projects[$i]->projectId}}'">
+            <div class="row align-items-end pb-md-5 mb-4">
+                <div class="col-md-7 p-3">
+                    <div>
+                        <img class="img-fluid shadow"
+                            style="border-radius:10px; height:330px; width:620px; object-fit: cover"
+                            src="/storage/project_images/{{$projects[$i]->farmId}}/{{$projects[$i]->projectName}}/{{$projects[$i]->projectPhoto1}}"
+                            alt="" />
+                    </div>
+                </div>
+                <div class="col-md-5 p-3">
+                    <h4 class="section-intro__title left-border">{{$projects[$i]->estdDate}}</h4>
+                    <h2 style="font-size:25px;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;"
+                        class="section-intro__subtitle small">
+                        {{$projects[$i]->projectName}}
+                    </h2>
+                    <p
+                        style="font-size:20px;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif">
+                        <b style="font-weight:100;">Client </b>{{$projects[$i]->description}} <br>
+                        <b style="font-weight:100;">Location </b>{{$projects[$i]->location}}
+                    </p>
+                    <a class="btn btn--rightBorder" href="/projects/{{$projects[$i]->projectId}}">View Details</a>
                 </div>
             </div>
-            <div class="col-md-5 p-3">
-                <h4 class="section-intro__title left-border">{{$projects[$i]->estdDate}}</h4>
-                <h2 style="font-size:25px;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;"
-                    class="section-intro__subtitle small">
-                    {{$projects[$i]->projectName}}
-                </h2>
-                <p
-                    style="font-size:20px;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif">
-                    <b style="font-weight:100;">Client </b>{{$projects[$i]->description}} <br>
-                    <b style="font-weight:100;">Location </b>{{$projects[$i]->location}}
-                </p>
-                <a class="btn btn--rightBorder" href="/projects/{{$projects[$i]->projectId}}">Read More</a>
-            </div>
-        </div>
-
-    <div class="row align-items-end pb-md-5 mb-4">
-        <div class="col-md-5 p-3">
-            <h4 class="section-intro__title left-border">{{$projects[$i+1]->estdDate}}</h4>
-
-            <h2 style="font-size:25px;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;"
-                class="section-intro__subtitle small">
-                {{$projects[$i+1]->projectName}}
-            </h2>
-            <p
-                style="font-size:20px;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif">
-                <b style="font-weight:100;">Client </b>{{$projects[$i+1]->description}} <br>
-                <b style="font-weight:100;">Location </b>{{$projects[$i+1]->location}}
-            </p>
-
-            <a class="btn btn--rightBorder mt-3" href="/projects/{{$projects[$i+1]->projectId}}">Read More</a>
-        </div>
-        <div class="col-md-7 p-3">
-            <div>
-                <img class="img-fluid shadow" style="border-radius:10px; height:330px; width:620px;"
-                    src="/storage/project_images/{{$projects[$i+1]->farmId}}/{{$projects[$i+1]->projectName}}/{{$projects[$i+1]->projectPhoto1}}"
-                    alt="" />
-            </div>
-        </div>
     </div>
-
-    @else
-
-    <div class="row align-items-end pb-md-5 mb-4">
-        <div class="col-md-7 p-3">
-            <div>
-                <img style="border-radius:10px;height:330px;width:650px;" class="img-fluid shadow"
-                    src="/storage/project_images/{{$projects[$i]->farmId}}/{{$projects[$i]->projectName}}/{{$projects[$i]->projectPhoto1}}"
-                    alt="" />
-            </div>
-        </div>
-        <div class="col-md-5 p-3">
-            <h4 class="section-intro__title left-border">{{$projects[$i]->estdDate}}</h4>
-            <h2 style="font-size:25px;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;"
-                class="section-intro__subtitle small">
-                {{$projects[$i]->projectName}}
-            </h2>
-            <p
-                style="font-size:20px;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif">
-                <b style="font-weight:100;">Client </b>{{$projects[$i]->description}} <br>
-                <b style="font-weight:100;">Location </b>{{$projects[$i]->location}}
-            </p>
-            <a class="btn btn--rightBorder" href="/projects/{{$projects[$i]->projectId}}">Read More</a>
-        </div>
-    </div>
-
-    @endif
     @endfor
 
     <div class="d-flex justify-content-center">
@@ -312,44 +270,45 @@
 
         @if(count($teams) == 1)
         <div class="owl-carousel owl-theme testimonialCarousel">
-        @else
-        <div class="owl-carousel owl-theme testimonialCarouselForTwo">
-        @endif
-            @if(count($teams)>0)
-            @foreach($teams as $team)
-            <div class="item">
-                <div class="media testimonial__slide">
-                    @if($team->memberPhoto != null)
-                    <img class="mr-4" src="/storage/project_images/{{$team->farmId}}/teamPhoto/{{$team->memberPhoto}}"
-                        width="120" height="125" alt="" />
-                    @else
-                    <img class="mr-4" src="/storage/project_images/grey.png" width="120" height="125" alt="" />
-                    @endif
-                    <div class="media-body">
-                        <blockquote>
-                            {!!$team->description!!}
-                        </blockquote>
-                        <h3>{{$team->memberName}} | {{$team->position}} </h3>
-                        <p>{{$team->degree}}
-                            @if(Auth::guard('admin')->check())
-                            <a href="/teams/{{$team->memberId}}/edit">EDIT</a>
-                            {{Form::open(['action' => ['TeamsController@destroy',$team->memberId], 'method' => 'POST']) }}
-                            {{Form::hidden('_method','DELETE')}}
-                            {{Form::submit('D E L E T E')}}
-                            {{ Form::close() }}
-                            @endif
-                        </p>
+            @else
+            <div class="owl-carousel owl-theme testimonialCarouselForTwo">
+                @endif
+                @if(count($teams)>0)
+                @foreach($teams as $team)
+                <div class="item">
+                    <div class="media testimonial__slide">
+                        @if($team->memberPhoto != null)
+                        <img class="mr-4"
+                            src="/storage/project_images/{{$team->farmId}}/teamPhoto/{{$team->memberPhoto}}" width="120"
+                            height="125" alt="" />
+                        @else
+                        <img class="mr-4" src="/storage/project_images/grey.png" width="120" height="125" alt="" />
+                        @endif
+                        <div class="media-body">
+                            <blockquote>
+                                {!!$team->description!!}
+                            </blockquote>
+                            <h3>{{$team->memberName}} | {{$team->position}} </h3>
+                            <p>{{$team->degree}}
+                                @if(Auth::guard('admin')->check())
+                                <a href="/teams/{{$team->memberId}}/edit">EDIT</a>
+                                {{Form::open(['action' => ['TeamsController@destroy',$team->memberId], 'method' => 'POST']) }}
+                                {{Form::hidden('_method','DELETE')}}
+                                {{Form::submit('D E L E T E')}}
+                                {{ Form::close() }}
+                                @endif
+                            </p>
+                        </div>
                     </div>
                 </div>
+
+                @endforeach
+                @else
+                <p style="color:white;"> No Member Included yet !</p>
+                @endif
+
             </div>
-
-            @endforeach
-            @else
-            <p style="color:white;"> No Member Included yet !</p>
-            @endif
-
         </div>
-    </div>
 </section>
 @endif
 <!-- <section class="portfolio mb-5">
@@ -399,15 +358,16 @@
                 </h2>
 
                 <form action="{{route('comments.store')}}" method="POST" enctype="multipart/form-data">
-                {{ csrf_field() }}
+                    {{ csrf_field() }}
 
-                <input type="hidden" name="farmId" class="form-control" value="{{$farm->farmId}}" />
-                @if(Auth::guard()->check())
-                <input type="hidden" name="userId" class="form-control" value="{{auth()->user()->id}}" />
-                @else
-                <input type="hidden" name="userId" class="form-control" value="0" />
-                @endif
-                <textarea id="articleCkeditor" style="color:yellow;" name="commentDesc" placeholder="Write Everything"></textarea>
+                    <input type="hidden" name="farmId" class="form-control" value="{{$farm->farmId}}" />
+                    @if(Auth::guard()->check())
+                    <input type="hidden" name="userId" class="form-control" value="{{auth()->user()->id}}" />
+                    @else
+                    <input type="hidden" name="userId" class="form-control" value="0" />
+                    @endif
+                    <textarea id="articleCkeditor" style="color:yellow;" name="commentDesc"
+                        placeholder="Write Everything"></textarea>
 
             </div>
             <div class="col-md-2 mt-2 text-center text-lg-right">
@@ -472,3 +432,56 @@
     });
 </script>
 @endsection
+
+
+{{-- <div class="row align-items-end pb-md-5 mb-4">
+        <div class="col-md-5 p-3">
+            <h4 class="section-intro__title left-border">{{$projects[$i+1]->estdDate}}</h4>
+
+<h2 style="font-size:25px;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;"
+    class="section-intro__subtitle small">
+    {{$projects[$i+1]->projectName}}
+</h2>
+<p
+    style="font-size:20px;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif">
+    <b style="font-weight:100;">Client </b>{{$projects[$i+1]->description}} <br>
+    <b style="font-weight:100;">Location </b>{{$projects[$i+1]->location}}
+</p>
+
+<a class="btn btn--rightBorder mt-3" href="/projects/{{$projects[$i+1]->projectId}}">Read More</a>
+</div>
+<div class="col-md-7 p-3">
+    <div>
+        <img class="img-fluid shadow" style="border-radius:10px; height:330px; width:620px;"
+            src="/storage/project_images/{{$projects[$i+1]->farmId}}/{{$projects[$i+1]->projectName}}/{{$projects[$i+1]->projectPhoto1}}"
+            alt="" />
+    </div>
+</div>
+</div> --}}
+
+{{-- @else --}}
+
+{{-- <div class="row align-items-end pb-md-5 mb-4">
+        <div class="col-md-7 p-3">
+            <div>
+                <img style="border-radius:10px;height:330px;width:650px;" class="img-fluid shadow"
+                    src="/storage/project_images/{{$projects[$i]->farmId}}/{{$projects[$i]->projectName}}/{{$projects[$i]->projectPhoto1}}"
+alt="" />
+</div>
+</div>
+<div class="col-md-5 p-3">
+    <h4 class="section-intro__title left-border">{{$projects[$i]->estdDate}}</h4>
+    <h2 style="font-size:25px;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;"
+        class="section-intro__subtitle small">
+        {{$projects[$i]->projectName}}
+    </h2>
+    <p
+        style="font-size:20px;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif">
+        <b style="font-weight:100;">Client </b>{{$projects[$i]->description}} <br>
+        <b style="font-weight:100;">Location </b>{{$projects[$i]->location}}
+    </p>
+    <a class="btn btn--rightBorder" href="/projects/{{$projects[$i]->projectId}}">Read More</a>
+</div>
+</div> --}}
+
+{{-- @endif --}}
